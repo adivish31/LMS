@@ -7,8 +7,9 @@ import { clerkWebhooks } from './controllers/webhooks.js'
 // initialize express
 const app = express()
 
-//connect to databse
+// connect to database
 await connectDB()
+console.log('Connected to database')
 
 // middlewares
 app.use(cors())
@@ -21,5 +22,5 @@ app.post('/clerk', express.json(), clerkWebhooks)
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
-  console.log(`server is running on port ${PORT}`)
+  console.log(`Server is running on port ${PORT}`)
 })
