@@ -18,9 +18,6 @@ app.use(cors())
 app.get('/', (req, res) => res.send("API Working"))
 app.post('/clerk', express.json(), clerkWebhooks)
 
-// port
-const PORT = process.env.PORT || 5000
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
-})
+// ❌ Do NOT use app.listen() on Vercel!
+// ✅ Instead, export app:
+export default app
